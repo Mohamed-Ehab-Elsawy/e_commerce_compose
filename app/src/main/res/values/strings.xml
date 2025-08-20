@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">E-commerce</string>
+    <string name="create_account">Create Account</string>
+    <string name="app_logo">app_logo</string>
+    <string name="welcome_back_to_route">Welcome Back To Route</string>
+    <string name="please_sign_in_with_your_mail">Please sign in with your mail</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="enter_your_email">Enter your email</string>
+    <string name="enter_your_password">Enter your password</string>
+    <string name="forget_password">Forget Password?</string>
+    <string name="don_t_have_an_account">"Don't have an account?"</string>
+    <string name="sign_up">Sign up</string>
+    <string name="login">Login</string>
+    <string name="full_name">Full Name</string>
+    <string name="enter_your_full_name">Enter your full name</string>
+    <string name="loading">Loading…</string>
 </resources>
