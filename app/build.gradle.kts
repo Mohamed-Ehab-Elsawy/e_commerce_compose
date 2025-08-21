@@ -4,14 +4,15 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("org.jetbrains.kotlin.plugin.serialization")
 }
 
 android {
-    namespace = "com.example.e_commerce"
+    namespace = "com.route.e_commerce"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.e_commerce"
+        applicationId = "com.route.e_commerce"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
@@ -29,14 +30,11 @@ android {
             )
         }
     }
-
-    // ✅ Align Java with Kotlin
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
 
-    // ✅ Kotlin DSL
     kotlin {
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_11)
@@ -74,6 +72,8 @@ dependencies {
     implementation(libs.datastore)
     implementation(libs.coil.compose)
     implementation(libs.kotlinx.coroutines.android)
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0")
+
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
