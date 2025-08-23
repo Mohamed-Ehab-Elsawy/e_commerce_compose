@@ -6,17 +6,17 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
-import com.route.e_commerce.core.composables.LoadingIndicator
+import com.route.e_commerce.core.composable.LoadingIndicator
 import com.route.e_commerce.core.navigation.ECommerceRoutes
 import com.route.e_commerce.core.ui.UiState
+import com.route.e_commerce.features.auth.signup.presentation.components.SignupViewBody
 import com.route.e_commerce.features.auth.signup.presentation.events.SignupEvent
 import com.route.e_commerce.features.auth.signup.presentation.viewmodel.SignupViewModel
-import com.route.e_commerce.features.auth.signup.presentation.views.SignupViewBody
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
@@ -25,7 +25,7 @@ fun SignupView(
     navController: NavController,
     signupViewModel: SignupViewModel = koinViewModel(),
 ) {
-    val uiState by signupViewModel.uiState.collectAsState()
+    val uiState by signupViewModel.uiState.collectAsStateWithLifecycle()
     val context = LocalContext.current
 
     Scaffold { paddingValues ->
@@ -43,7 +43,7 @@ fun SignupView(
         signupViewModel.events.collect { event ->
             when (event) {
                 is SignupEvent.NavigateToHome ->
-                    navController.navigate(ECommerceRoutes.Home.route) {
+                    navController.navigate(ECommerceRoutes.Main.route) {
                         popUpTo(ECommerceRoutes.Signup.route) {
                             inclusive = true
                         }

@@ -16,13 +16,16 @@ fun <T> handleResponse(response: Response<T>): Result<T> {
         }
     } else {
         val errorBody = response.errorBody()?.string()
-        val errorResponse = Gson().fromJson(errorBody, ErrorResponse::class.java)
+        val errorResponse = Gson().fromJson(
+            errorBody,
+            ErrorResponse::class.java
+        )
         Result.failure(Exception(errorResponse.message))
     }
 }
 
-fun showToast(context: Context, msg: String) {
+fun showToast(context: Context, msg: String?) {
     Toast.makeText(
-        context, msg, Toast.LENGTH_SHORT
+        context, msg ?: "Something went wrong", Toast.LENGTH_SHORT
     ).show()
 }

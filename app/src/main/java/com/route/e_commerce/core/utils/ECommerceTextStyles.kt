@@ -6,6 +6,12 @@ import androidx.compose.ui.unit.sp
 import com.route.e_commerce.core.ui.theme.white
 
 object ECommerceTextStyles {
+
+    val text14 = TextStyle(
+        fontSize = 14.sp,
+        color = white,
+        fontWeight = FontWeight.Normal
+    )
     val text16 = TextStyle(
         fontSize = 16.sp,
         color = white,

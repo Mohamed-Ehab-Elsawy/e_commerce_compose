@@ -8,6 +8,8 @@ import com.route.e_commerce.features.auth.reset_password.data.remote_source.Rese
 import com.route.e_commerce.features.auth.reset_password.data.remote_source.ResetPasswordRemoteDataSourceImpl
 import com.route.e_commerce.features.auth.signup.data.sources.remote.SignupRemoteDataSource
 import com.route.e_commerce.features.auth.signup.data.sources.remote.SignupRemoteDataSourceImpl
+import com.route.e_commerce.features.main.presentation.views.home.data.sources.remote.HomeRemoteDataSource
+import com.route.e_commerce.features.main.presentation.views.home.data.sources.remote.HomeRemoteDataSourceImpl
 import org.koin.dsl.module
 
 val remoteDataSourcesModule = module {
@@ -26,6 +28,10 @@ val remoteDataSourcesModule = module {
 
     single<ResetPasswordRemoteDataSource> {
         ResetPasswordRemoteDataSourceImpl(get())
+    }
+
+    single<HomeRemoteDataSource> {
+        HomeRemoteDataSourceImpl(get())
     }
 
 }

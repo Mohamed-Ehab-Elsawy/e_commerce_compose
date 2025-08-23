@@ -72,8 +72,10 @@ dependencies {
     implementation(libs.datastore)
     implementation(libs.coil.compose)
     implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.compose.shimmer)
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0")
-
+    implementation("com.google.accompanist:accompanist-placeholder-material:0.36.0")
+    implementation("com.tbuonomo:dotsindicator:5.1.0")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

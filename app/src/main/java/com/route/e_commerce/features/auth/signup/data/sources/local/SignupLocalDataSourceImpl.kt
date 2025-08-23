@@ -8,6 +8,6 @@ class SignupLocalDataSourceImpl(
 ) : SignupLocalDataSource {
     override suspend fun storeUserData(userEntity: UserEntity?) {
         if (userEntity != null)
-            dataStoreManager.saveUser(userEntity)
+            dataStoreManager.putUser(userEntity)
     }
 }

@@ -5,23 +5,23 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
-import com.route.e_commerce.core.composables.LoadingIndicator
+import com.route.e_commerce.core.composable.LoadingIndicator
 import com.route.e_commerce.core.navigation.ECommerceRoutes
 import com.route.e_commerce.core.ui.UiState
 import com.route.e_commerce.core.utils.showToast
 import com.route.e_commerce.features.auth.forget_password.data.models.VerifyOtpRequest
+import com.route.e_commerce.features.auth.forget_password.presentation.components.ForgetPasswordViewBody
+import com.route.e_commerce.features.auth.forget_password.presentation.components.OtpModalBottomSheet
 import com.route.e_commerce.features.auth.forget_password.presentation.events.ForgetPasswordEvents
 import com.route.e_commerce.features.auth.forget_password.presentation.view_model.ForgetPasswordViewModel
-import com.route.e_commerce.features.auth.forget_password.presentation.views.ForgetPasswordViewBody
-import com.route.e_commerce.features.auth.forget_password.presentation.views.OtpModalBottomSheet
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
@@ -30,7 +30,7 @@ fun ForgetPasswordView(
     navController: NavController,
     forgetPasswordViewModel: ForgetPasswordViewModel = koinViewModel()
 ) {
-    val uiState by forgetPasswordViewModel.uiState.collectAsState()
+    val uiState by forgetPasswordViewModel.uiState.collectAsStateWithLifecycle()
     val context = LocalContext.current
     var email by remember { mutableStateOf("") }
     var showBottomSheet by remember { mutableStateOf(false) }

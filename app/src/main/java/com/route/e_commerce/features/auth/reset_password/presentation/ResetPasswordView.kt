@@ -5,18 +5,18 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
-import com.route.e_commerce.core.composables.LoadingIndicator
+import com.route.e_commerce.core.composable.LoadingIndicator
 import com.route.e_commerce.core.navigation.ECommerceRoutes
 import com.route.e_commerce.core.ui.UiState
 import com.route.e_commerce.core.utils.showToast
+import com.route.e_commerce.features.auth.reset_password.presentation.components.ResetPasswordViewBody
 import com.route.e_commerce.features.auth.reset_password.presentation.events.ResetPasswordEvents
 import com.route.e_commerce.features.auth.reset_password.presentation.view_model.ResetPasswordViewModel
-import com.route.e_commerce.features.auth.reset_password.presentation.views.ResetPasswordViewBody
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
@@ -26,7 +26,7 @@ fun ResetPasswordView(
     email: String,
     resetPasswordViewModel: ResetPasswordViewModel = koinViewModel()
 ) {
-    val uiState by resetPasswordViewModel.uiState.collectAsState()
+    val uiState by resetPasswordViewModel.uiState.collectAsStateWithLifecycle()
     val context = LocalContext.current
 
     Scaffold { paddingValues ->

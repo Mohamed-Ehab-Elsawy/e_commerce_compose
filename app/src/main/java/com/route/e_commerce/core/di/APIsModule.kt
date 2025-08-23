@@ -4,6 +4,7 @@ import com.route.e_commerce.features.auth.forget_password.data.api.ForgetPasswor
 import com.route.e_commerce.features.auth.login.data.api.LoginAPI
 import com.route.e_commerce.features.auth.reset_password.data.api.ResetPasswordAPI
 import com.route.e_commerce.features.auth.signup.data.api.SignupAPI
+import com.route.e_commerce.features.main.presentation.views.home.data.api.HomeAPI
 import org.koin.dsl.module
 import retrofit2.Retrofit
 
@@ -12,5 +13,5 @@ val apisModule = module {
     single<LoginAPI> { get<Retrofit>().create(LoginAPI::class.java) }
     single<ForgetPasswordAPI> { get<Retrofit>().create(ForgetPasswordAPI::class.java) }
     single<ResetPasswordAPI> { get<Retrofit>().create(ResetPasswordAPI::class.java) }
-
+    single<HomeAPI> { get<Retrofit>().create(HomeAPI::class.java) }
 }

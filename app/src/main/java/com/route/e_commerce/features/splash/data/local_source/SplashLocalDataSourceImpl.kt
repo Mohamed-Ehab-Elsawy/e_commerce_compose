@@ -8,5 +8,5 @@ class SplashLocalDataSourceImpl(
     private val dataStoreManager: DataStoreManager
 ) : SplashLocalDataSource {
     override suspend fun fetchUserEntity(): UserEntity? =
-        dataStoreManager.getUser().firstOrNull()
+        dataStoreManager.fetchUser().firstOrNull()
 }

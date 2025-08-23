@@ -2,6 +2,7 @@ package com.route.e_commerce.core.application
 
 import android.app.Application
 import com.route.e_commerce.core.di.apisModule
+import com.route.e_commerce.core.di.appModule
 import com.route.e_commerce.core.di.dataStoreModule
 import com.route.e_commerce.core.di.localDataSourcesModule
 import com.route.e_commerce.core.di.remoteDataSourcesModule
@@ -21,6 +22,7 @@ class ECommerceApplication : Application() {
             androidContext(this@ECommerceApplication)
             androidLogger(Level.ERROR)
             modules(
+                appModule,
                 retrofitModule,
                 apisModule,
                 dataStoreModule,

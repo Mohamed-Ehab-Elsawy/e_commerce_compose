@@ -24,6 +24,6 @@ class SignupRemoteDataSourceImpl(
     private suspend fun storeUserData(response: Response<AuthResponse>) {
         val userEntity = response.body()?.toUserEntity()
         if (userEntity != null)
-            dataStoreManager.saveUser(userEntity)
+            dataStoreManager.putUser(userEntity)
     }
 }

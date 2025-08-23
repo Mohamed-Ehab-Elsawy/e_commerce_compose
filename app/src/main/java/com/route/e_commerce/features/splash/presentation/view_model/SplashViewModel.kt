@@ -15,6 +15,7 @@ import kotlinx.coroutines.launch
 class SplashViewModel(
     private val fetchUserEntityUseCase: FetchUserEntityUseCase
 ) : ViewModel() {
+
     private val _uiState = MutableStateFlow<UiState<UserEntity?>>(UiState.Idle)
     val uiState: StateFlow<UiState<UserEntity?>> = _uiState
 
